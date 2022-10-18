@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨某某的blog</title>
+    <script>
+        window.onload = setInterval("getDate()",1000);
+        function getDate()
+            {
+                document.getElementById("time").innerHTML="";
+                document.getElementById("yuyan").innerHTML="";
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = d.getMonth()+1;
+                var day = d.getDate();
+                var week = d.getDay();
+                var hour = d.getHours();
+                var minute = d.getMinutes();
+                var second = d.getSeconds();
+                var Hour = ["凌晨了，还不睡觉吗？","还没睡！是不是又在想Ta了","天都还没亮，是到底是没睡还是已经起床了！","起床这么早，一定是一个早睡早起的好孩子","吃了早餐了吗？每天记得按时吃饭呀","上午好呀","中午了，该干饭啦","这都什么时候了，睡一个午觉吧！","该吃完饭咯，记得要吃好哦","傍晚咯，看看我的抖音放松一下心情吧！","忙碌一天的你打一把游戏放松一下吧","该睡觉啦！这么晚了"];
+                var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+                var time_text = document.createTextNode('今天是'+year+'年'+month+'月'+day+'日'+'      '+weeks[week]);
+                var yuyan_text = document.createTextNode('现在都已经'+hour+'点'+minute+'分'+second+'秒了'+'   '+Hour[Math.floor(hour/2)]);
+                document.getElementById("time").appendChild(time_text);
+                document.getElementById("yuyan").appendChild(yuyan_text);
+                var oce=document.getElementById("ce").children;
+                for(var i = 0 ; i < oce.length; i++)
+                {
+                    oce[i].onmouseover=function()
+                    {
+                        this.children[1].style.display="block";
+                    }
+                    oce[i].onmouseout=function()
+                    {
+                        this.children[1].style.display="none";
+                    }
+                }
+            }
+            function ly()
+            {
+                var otext=document.getElementById("liuyantext");
+                if(otext.value=="")
+                {
+                    alert("你还没有输入哟！请输入·留言再点击吧！")
+                }
+                else
+                {
+                var yhid="";
+                var tt="abcdefghijkmlnopqrstuvwxyz0123456789";
+                var ttarr=tt.split("");
+                for(var i = 0 ; i < 5 ; i++)
+                {
+                    yhid+=ttarr[Math.floor(Math.random()*ttarr.length)];
+                }
+                var obt=document.createTextNode("匿名用户"+yhid+"："+otext.value);
+                var oli=document.createElement("li");
+                oli.appendChild(obt);
+                document.getElementById("x").appendChild(oli);
+                otext.value="";
+                }
+            }
+    </script>
+    <style>
+        body
+        {
+            font-family: "宋体";
+            font-size: 20px;
+            background-image: url(d/w.jpg);
+            background-size: 100%;
+            background-attachment: fixed;
+            cursor:url(c/Arrow.cur),pointer;
+        }
+        .a
+        {
+            text-align: left;
+            font-size: 25px;
+            font-family: "隶书";
+            color: deepskyblue;
+            position:absolute;
+            width: 600px;height: auto;
+            top:100px;
+            left:200px;
+        }
+        #b1{top: 400px;
+            color: coral;
+            text-align: left;
+            position:absolute;
+            border: 1px solid green;
+            width: 60%;
+            left: 18%;
+        }
+        #b2{top:800px;
+            color: chocolate;
+            text-align: left;
+            position:absolute;
+            border: 1px solid green;
+            width: 60%;
+            left: 18%;
+        }
+        #b3{
+            top:1100px;
+            color: rgb(159, 93, 7);
+            text-align: left;
+            position:absolute;
+            border: 1px solid green;
+            width: 60%;
+            left: 18%;
+        }
+        #b4{
+            color: rgb(131, 152, 10);
+            font-size: 20px;
+            top:1600px;
+            text-align: left;
+            position:absolute;
+            width: 60%;
+            left: 18%;
+        }
+        #me
+        {
+            border-radius: 50%;
+            height: 120px;
+            width: 120px;
+            position: absolute;
+            top:260px;
+            left:250px;
+            float: left;
+            transition: all 0.6s;
+        }
+        #me:hover{
+            width: 150px;
+            height: 150px;
+
+        }
+        .pt a
+        {
+            text-decoration: none;
+            border: 1px solid rgb(216, 33, 143);
+            cursor:url(c/Hand.cur),pointer;
+        }
+        .tp
+        {
+            height: 40px;
+            font-size: 30px;
+            position: fixed;
+            top:400px;
+            left: 78%;
+            cursor:url(c/Hand.cur),pointer;
+        }
+        #time
+        {
+            font-family: "楷体";
+            font-size: 35px;
+            color: rgb(190, 212, 22);
+            position:fixed;
+            top:250px;
+            left:78%;
+        }
+        #yuyan
+        {
+            font-family: "楷体";
+            color: deeppink;
+            font-size:30px;
+            position: absolute;
+            top:290px;
+            left: 24%;
+        }
+        #pinglunqu
+        {
+            position: absolute;
+            width: 60%;
+            height: 30px;
+            top:1700px;
+        }
+        #liuyantext
+        {
+            border-radius: 30px;
+            width: 500px;
+            height: 40px;
+            font-size: 30px;
+            background-color:transparent;
+            border:1px solid rgb(5, 132, 87);
+        }
+        #liuyananniu
+        {
+            background-color:transparent;
+            border:0;
+            height: 40px;
+            width: 140px;
+            font-size: 30px;
+        }
+        .ll
+        {
+            background-color:transparent;
+            border:0;
+            height: 40px;
+            width: 140px;
+            font-size: 30px;
+        }
+        #ce ul
+        {
+            position: absolute;
+            top:10px;
+            right: 0;
+            display: none;
+        }
+        #ce li ul li a
+        {
+            text-decoration: none;
+            color: pink;
+        }
+        li{list-style: none;}
+        #ce
+        {
+            position: absolute;
+            height: 30px;
+            width: 1200px;
+            top:10px;
+            right: 0px;
+        }
+        #ce li{
+            text-align: center;
+            position: relative;
+            float: right;
+            width: 120px;
+            height: 30px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="a"> 
+        <h1 style="color:rgb(166, 161, 18); font-family:'宋体';">杨某mou的博客</h1>
+        <p>欢迎来到我的博客，我只能说我很无聊，你也很无聊</p>
+    </div>
+        <img id="me" src="d/tou.png">
+    <div class="b">
+        <div id="b1">
+            <h3>个人简介</h3>
+            <p>昵称：flag</p>
+            <p>qq：2259202040</p>
+            <p>电话：123456789</p>
+            <p>学校：重庆邮电大学(双非)</p>
+            <p>个性签名：坚持很难，偶尔摆烂会很快乐！！！</p>
+            <p>兴趣爱好：打游戏、打球</p>
+        </div>
+        <div id="b2">
+            <h3>学习经历：</h3>
+            <p>南川区太平场镇中心幼儿园读了三年幼儿园</p>
+            <p>巴南区丰盛镇读了1-5年级，然后南川区太平场镇读完了小学</p>
+            <p>顺理成章进入南川三中读完了中学六年</p>
+            <p>最后以全校理科第四的成绩考上了重庆邮电大学-安法学院-网络安全类</p>
+        </div>
+        <div id="b3">
+            <h3>高中感悟</h3>
+            <p>高中这几年来吧，认识了一群好伙伴，感觉大家都能和睦的相处，无论是晚上在宿舍摆龙门阵到凌晨，还是打扑克到半夜，或许是被谁的呼噜声吵醒，从教室以最快的速度冲回宿舍就为了先洗澡，早上为了非要卡点进教室非要等到还差3分钟上课然后飞奔到教室，半路或许还能超越同学，宿舍健身热潮也会让我一起健身，排队在门框上做引体向上······</p>
+            <p>物理老师喜欢喝酒然后给我们将道理，讲人生，我也很喜欢听，主要是不用动脑子学物理听老师讲故事就很不错，语文老师是一个年过六旬的老人，经历的事情很多，也老喜欢给我们讲他年轻时候的故事，当他写的他的父亲这篇作文的时候，的确很触动，老师泪目了，我们也快泪目了，教室很安静，只有老师逐渐沙哑的声音和那抽纸的声音；数学老师是学校出名的老师，疫情的时候身体出了问题，后来由于放心不下下我们学习，每节课杵着拐杖来给我们上课，的确付出了很多，但是我的数学成绩老是这么差，让我对数学老师很忏愧，感觉辜负了他的付出。生物老师也特别负责，即使后来不是班主任了，但是仍然像班主任一样来管理我们班，她的课很多，我记得最多的是周一连续上很多节课，真的很负责的老师，也是我们最亲近的老师之一。</p>
+            <p>学习嘛！摆烂呗，上课听一听，下课睡一觉，中午逛一逛，晚上开两把，凌晨学习是不可能的。开玩笑！其实也不是没有认真过，刚上高三被所谓别人口中的高三吓着了，于是学习过一学期，但是后来慢慢对高三有了新的认识，高三下就开始摆烂。</p>
+            <p>高中的确有很多让人只能眷恋的事，比如趴在阳台看夕阳，上课看窗外的燕子嬉戏······</p>
+        </div>
+        <div id="b4">
+            <h3>留言板</h3>
+            <ul list-style="none" id="x" style="display:none">
+            </ul>
+            <input type="text" id="liuyantext"><input type="button" id="liuyananniu" value="发送留言" onclick="ly()"/>
+            <input type="button" class="ll" value="查看留言" onclick="document.getElementById('b4').children[1].style.display='block'">
+            <input type="button" class="ll" value="隐藏留言" onclick="document.getElementById('b4').children[1].style.display='none'">
+            <br><br><br><br><br><br>
+        </div>
+    </div>
+    <div class="tp">
+        <span><a href="https://user.qzone.qq.com/2259202040" target="_blank">ta的qq空间</a></span>
+        <br>
+        <span><a href="https://www.douyin.com/user/MS4wLjABAAAAkasBLjoY_EU_auc_y9jPuoTed7tkgFK8XecUARAfw6SWJvr9cHU5iBQOzctPiAYp" target="_blank">ta的抖音</a> </span>
+    </div>
+    <div id="time">
+    </div>
+    <p id="yuyan"></p>
+    <div id="ce">
+        <li><div>设置</div>
+            <ul>
+                <li><a href="">设置一</a></li>
+                <li><a href="">设置二</a></li>
+                <li><a href="">设置三</a></li>
+            </ul>
+        </li>
+        <li><div>联系</div>
+            <ul>
+                <li><a href="#">qq</a></li>
+                <li><a href="#">微信</a></li>
+                <li><a href="#">抖音</a></li>
+            </ul>
+        </li>
+        <li><div>留言</div>
+            <ul>
+                <li><a href="#b4">留言板</a></li>
+                <li><a href="#b4">留言</a></li>
+            </ul>
+        </li>
+    </div>
+</body>
+</html>
